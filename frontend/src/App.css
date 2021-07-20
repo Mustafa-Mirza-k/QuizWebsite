@@ -7,11 +7,23 @@
   height: 40vmin;
   pointer-events: none;
 }
+.modalMessage{
+  margin-top: 2%;
+  margin-left: 2%;
+}
 
+.modalPanel{
+  color:white !important;
+  display: flex !important;
+  text-align: center;
+}
+.modalPanelImg{
+  width: 10%;
+}
 
 .loginForm{
   width: 80%;
-  margin-left: 5%;
+  margin-left: 10%;
   margin-top: 10%;
   
 }

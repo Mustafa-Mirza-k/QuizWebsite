@@ -59,7 +59,11 @@ router.patch("/:id", (req, res, next) => {
       answer: req.body.answer,
     }
   )
-    .then((result) => result ? res.status(200).json({ message: "Updated!" }) : res.status(404).json({ message: "Not Found!" }))
+    .then((result) =>
+      result
+        ? res.status(200).json({ message: "Updated!" })
+        : res.status(404).json({ message: "Not Found!" })
+    )
     .catch((error) => res.status(404).json({ message: "Not Found!" }));
 });
 
