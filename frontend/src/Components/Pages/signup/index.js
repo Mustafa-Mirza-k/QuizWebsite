@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button, Form, Row, Col, Image } from "react-bootstrap";
-import Message from "../../Modal";
+import Message from "../../Message";
 const axios = require("axios");
 
 function Signup() {

@@ -1,31 +1,84 @@
 .App {
-  background-color: #F7F7F7;
+  background-color: #f7f7f7;
+}
+.addbtn {
+  /* flex: auto; */
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 2%;
+}
+.Tablehead {
+  font-weight: 900;
+  font-family: "Open Sans Condensed";
+  font-size: 30px;
+  color: #535353;
+}
+/* .navbar {
+  background-color: #6774df !important;
+  font-family: "Open Sans Condensed";
+  font-size: 25px;
+  font-weight: 500;
+}
+.navlink {
+  color: white !important;
+} */
+
+.sm-table {
+  width: 75% !important;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 2%;
+  background-color: white;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  box-shadow: 5px 5px #eeeeee;
+  border: 1px solid #eeeeee;
+}
+ion-icon {
+  font-size: 20px;
+  margin-top: -5px;
+  margin-bottom: auto;
 }
 
+.btnTable {
+  height: 30px;
+  background-color: #6774df !important;
+  color: white !important;
+}
+.btnTable:hover {
+  background-color: white !important;
+  color: #6774df !important;
+}
+
+Table {
+  width: 20%;
+}
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
-.modalMessage{
+.modalMessage {
   margin-top: 2%;
   margin-left: 2%;
 }
 
-.modalPanel{
-  color:white !important;
+.modalPanel {
+  color: white !important;
   display: flex !important;
   text-align: center;
 }
-.modalPanelImg{
+.modalPanelImg {
   width: 10%;
 }
 
-.loginForm{
+.loginForm {
   width: 80%;
   margin-left: 10%;
   margin-top: 10%;
-  
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -34,59 +87,67 @@
   }
 }
 
-.loginHeader{
-font-family: "Open Sans Condensed";
-color: #494949;
-padding-bottom: 10%;
-font-size: 40px;
-font-weight: 600;
+.loginHeader {
+  font-family: "Open Sans Condensed";
+  color: #494949;
+  padding-bottom: 10%;
+  font-size: 40px;
+  font-weight: 600;
 }
 
-.colForm{
-  background-color: #F7F7F7;
-  height: 700px  !important;
+.colForm {
+  background-color: #f7f7f7;
+  height: 700px !important;
 }
 @media only screen and (max-width: 800px) {
   .loginCol {
-      display: none;
+    display: none;
   }
-  .colForm{
+  .colForm {
     width: 100% !important;
-   
     flex: 1;
   }
 }
+.modal-title{
+  font-weight: 600 !important;
 
+}
+.addOptionBtn{
+  height: 30px !important;
+}
 
-.normalFont{
+.normalFont {
   font-family: "Open Sans Condensed";
-  color: #6E6E6E;
+  color: #6e6e6e;
   font-size: 20px;
   font-weight: 600;
 }
 
-.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
-  background-color: #6774DF !important;
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:visited {
+  background-color: #6774df !important;
   font-family: "Open Sans Condensed" !important;
   font-weight: bold !important;
 }
-.LoginImage{
+.LoginImage {
   height: 700px !important;
 }
 
- .btn-primary:active {
-  background-color: #E6E5F0 !important;
+.btn-primary:active {
+  background-color: #e6e5f0 !important;
   font-family: "Open Sans Condensed" !important;
   font-weight: bold !important;
-  color:#6774DF !important;
+  color: #6774df !important;
 }
 
-#link:hover{
-  color: #5963CD !important;
+#link:hover {
+  color: #5963cd !important;
 }
 
-#link{
-  color: #6774DF !important;
+#link {
+  color: #6774df !important;
   font-family: "Open Sans Condensed" !important;
   text-decoration-line: none !important;
   font-weight: bold !important;

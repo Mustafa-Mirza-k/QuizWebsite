@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { Button, Form, Row, Col, Image } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
-import Message from "../../Modal";
+import Message from "../../Message";
 function Login() {
   const [userInfo, setuserInfo] = useState({});
   const [messageShow, setmessageShow] = useState(false);

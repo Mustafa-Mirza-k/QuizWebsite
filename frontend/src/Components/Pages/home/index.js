@@ -1,7 +1,11 @@
 import React from "react";
+import Navigationbar from "../../Navbar";
 function home() {
   return (
-   <div>Home Page</div>
+    <div>
+      <Navigationbar/>
+      Home Page
+    </div>
   );
 }
 
