@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Button, Form, Row, Col, Image } from "react-bootstrap";
+import db from "../../db";
 import Message from "../../Message";
 const axios = require("axios");
 
@@ -19,10 +20,7 @@ function Signup() {
 
   async function isUserExist() {
     var find = 0;
-    return await axios({
-      method: "get", //you can set what request you want to be
-      url: process.env.REACT_APP_BASE_URL + "/api/user",
-    }).then((users) => {
+    return db.getUsers().then((users) => {
       users.data.map((user) => user.email === userInfo.email && (find = 1));
       return find === 1 ? true : false;
     });
@@ -33,16 +31,8 @@ function Signup() {
     toggleMessage();
     setsuccess(success);
   }
-  async function createUser() {
-    await axios({
-      method: "post", //you can set what request you want to be
-      url: process.env.REACT_APP_BASE_URL + "/api/user",
-      data: userInfo,
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then(function (response) {
+   function createUser() {
+   db.addUser(userInfo).then(function (response) {
         if (response.status === 201) {
           infoMessage("Account created successfully", true);
         } else {

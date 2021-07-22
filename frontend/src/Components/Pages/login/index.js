@@ -1,7 +1,7 @@
-import axios from "axios";
 import React, { useState } from "react";
 import { Button, Form, Row, Col, Image } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
+import db from "../../db";
 import Message from "../../Message";
 function Login() {
   const [userInfo, setuserInfo] = useState({});
@@ -16,10 +16,7 @@ function Login() {
 
   async function isUserExist() {
     var find = 0;
-    return await axios({
-      method: "get", //you can set what request you want to be
-      url: process.env.REACT_APP_BASE_URL + "/api/user",
-    }).then((users) => {
+    return db.getUsers().then((users) => {
       users.data.map(
         (user) =>
           user.email === userInfo.email &&
