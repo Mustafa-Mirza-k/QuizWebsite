@@ -81,8 +81,6 @@ Table {
   margin-top: 10%;
 }
 
-
-
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -110,14 +108,113 @@ Table {
     flex: 1;
   }
 }
-.modal-title{
+.modal-title {
   font-weight: 600 !important;
-
 }
-.addOptionBtn{
+.addOptionBtn {
   height: 30px !important;
   margin-left: auto;
   margin-right: auto;
+}
+@media only screen and (max-width: 600px) {
+  .contain {
+    width: 90% !important;
+  }
+
+  .instructions {
+    padding-top: 5% !important;
+  }
+}
+.content {
+  margin: auto;
+  width: 120%;
+}
+.QuizQuestion {
+  font-size: 20px;
+  color: #494949;
+}
+
+.quizbtn {
+  border-bottom-left-radius: 15px !important;
+  border-bottom-right-radius: 15px !important;
+  border-top-left-radius: 15px !important;
+  border-top-right-radius: 15px !important;
+  font-size: larger !important;
+  font-weight: 800 !important;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5%;
+}
+.centered {
+  display: flex;
+  margin-top: 6%;
+}
+
+.instructions {
+  font-size: 20px !important;
+  font-family: "Open Sans Condensed";
+  font-weight: 600;
+}
+
+.QuizContent {
+  color: rgba(0, 0, 0, 0.75);
+}
+
+.contain {
+  overflow: scroll;
+  background-color: white;
+  display: flex;
+  width: 45%;
+  height: 80%;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  background: #fff;
+  margin-top: 5%;
+  margin-right: auto;
+  margin-left: auto;
+  box-shadow: 0 14px 28px rgba(134, 134, 134, 0.25),
+    0 10px 10px rgba(134, 134, 134, 0.25);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  padding: 5%;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.optionbtn {
+  text-align: left !important;
+  width: 70%;
+  margin-top: 2%;
+  font-weight: bold !important;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+
+
+.Quizheader {
+  font-size: 40px;
+  color: #494949;
+}
+.btnGroup {
+  margin-top: 2%;
+  display: flex;
+  justify-content: center;
+}
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  padding: 0;
+  margin: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #d8d7f0;
+  color: white;
+  font-family: "Open Sans Condensed";
+  font-weight: 600;
+  height: 100%;
 }
 
 .normalFont {
@@ -125,6 +222,14 @@ Table {
   color: #6e6e6e;
   font-size: 20px;
   font-weight: 600;
+}
+
+.btn-outline-primary:hover {
+  background-color: #6774df !important;
+  color:white !important;
+}
+.btn-outline-primary{
+  color:#6774df !important;
 }
 
 .btn-primary,

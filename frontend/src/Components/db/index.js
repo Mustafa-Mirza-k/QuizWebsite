@@ -5,7 +5,7 @@ async function getUsers(MCQ) {
   return await axios({
     method: "get", //you can set what request you want to be
     url: process.env.REACT_APP_BASE_URL + "/api/user",
-  })
+  });
 }
 
 async function getMCQbyid(id) {
@@ -50,14 +50,22 @@ async function deleteMCQ(id) {
 }
 
 async function addUser(user) {
-   return await axios({
-        method: "post", //you can set what request you want to be
-        url: process.env.REACT_APP_BASE_URL + "/api/user",
-        data: user,
-        headers: {
-          "Content-Type": "application/json",
-        },
-      })
-  }
+  return await axios({
+    method: "post", //you can set what request you want to be
+    url: process.env.REACT_APP_BASE_URL + "/api/user",
+    data: user,
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+}
 
-export default { getMCQ, addMCQ, getMCQbyid, updateMCQ, deleteMCQ, getUsers, addUser};
+export default {
+  getMCQ,
+  addMCQ,
+  getMCQbyid,
+  updateMCQ,
+  deleteMCQ,
+  getUsers,
+  addUser,
+};
