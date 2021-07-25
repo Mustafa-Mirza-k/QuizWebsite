@@ -17,7 +17,7 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 app.use(express.json({extended: false})); 
-
+app.use(cors({ credentials: true, origin: "http://localhost:3000" }));
 
 mongoose.connect(const_uri, { useNewUrlParser: true, useUnifiedTopology: true})
 mongoose.set('useFindAndModify', false);

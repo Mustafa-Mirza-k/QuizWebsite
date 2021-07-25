@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Form, Row, Col, Image } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import db from "../../db";
+import { ReactSession } from "react-client-session";
 import Message from "../../Message";
+import Cookies from "js-cookie";
+
 function Login() {
   const [userInfo, setuserInfo] = useState({});
   const [messageShow, setmessageShow] = useState(false);
@@ -14,17 +17,27 @@ function Login() {
     setuserInfo({ ...userInfo, [e.target.name]: e.target.value });
   }
 
+  useEffect(() => {
+    Cookies.get("user") !== undefined &&
+      (JSON.parse(Cookies.get("user")).type == "user"
+        ? History.push("/")
+        : History.push("/scores"));
+  }, []);
+  
   async function isUserExist() {
-    var find = 0;
-    return db.getUsers().then((users) => {
-      users.data.map(
-        (user) =>
-          user.email === userInfo.email &&
-          user.password === userInfo.password &&
-          (find = 1)
-      );
-      return find !== 0 ? true : false;
-    }).catch(error =>  infoMessage(error.message, false));
+    db.userAuth(userInfo)
+      .then((res) => {
+        if (res.status === 201) {
+          Cookies.set("user", res.data);
+          res.data.type === "user"
+            ? History.push("/")
+            : History.push("/scores");
+        } else {
+          infoMessage("Invalid email or password", false);
+        }
+        console.log(res);
+      })
+      .catch((error) => infoMessage(error.message, false));
   }
 
   function toggleMessage() {
@@ -39,9 +52,7 @@ function Login() {
 
   function submit(e) {
     e.preventDefault();
-    isUserExist().then((res) =>
-      !res ? infoMessage("Invalid email or password", false) : History.push("/")
-    );
+    isUserExist();
   }
 
   return (

@@ -14,10 +14,13 @@ export const mcqCounterSlice = createSlice({
     decrement: (state) => {
       state.mcqCount > 0 && (state.mcqCount -= 1)
     },
+    resetCounter: (state) => {
+      state.mcqCount = 0;
+    }
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { increment, decrement } = mcqCounterSlice.actions;
+export const { increment, decrement, resetCounter } = mcqCounterSlice.actions;
 
 export default mcqCounterSlice.reducer;

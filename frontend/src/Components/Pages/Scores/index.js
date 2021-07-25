@@ -20,7 +20,7 @@ function Scores() {
   }, []);
 
   return (
-    <div>
+    <div className="wrapper">
       <Navigationbar />
       <div className="sm-table">
         <div className="Tablehead">Scores Table</div>
@@ -40,7 +40,7 @@ function Scores() {
                   <td>{user._id}</td>
                   <td>{user.name}</td>
                   <td>{user.email}</td>
-                  <td>{user.score !== "" ? user.score+"/ 50" : "-"}</td>
+                  <td>{user.score !== "" ? user.score : "-"}</td>
                 </tr>
               ))}
           </tbody>

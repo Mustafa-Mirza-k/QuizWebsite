@@ -1,9 +1,17 @@
+import Cookies from "js-cookie";
 import React from "react";
-import { Navbar, Nav, Container } from "react-bootstrap";
-function navigationbar() {
+import { useHistory } from "react-router-dom";
+import { Navbar, Nav, Container, Button } from "react-bootstrap";
+function Navigationbar() {
+  let History = useHistory();
   return (
     <div>
-      <Navbar collapseOnSelect expand="lg" bg="primary" variant="dark">
+      <Navbar
+        collapseOnSelect
+        expand="lg"
+        className="customNavbar"
+        variant="dark"
+      >
         <Container>
           <Navbar.Brand href="#home">Quiz Application</Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -12,6 +20,17 @@ function navigationbar() {
               <Nav.Link href="/QuizManage">Quiz Management</Nav.Link>
               <Nav.Link href="/Scores">Scores</Nav.Link>
             </Nav>
+            <Nav>
+              <Button
+                className="btn-primary"
+                onClick={() => {
+                  Cookies.remove("user");
+                  History.push("/login");
+                }}
+              >
+                SignOut
+              </Button>
+            </Nav>
           </Navbar.Collapse>
         </Container>
       </Navbar>
@@ -19,4 +38,4 @@ function navigationbar() {
   );
 }
 
-export default navigationbar;
+export default Navigationbar;

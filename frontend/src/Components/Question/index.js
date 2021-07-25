@@ -12,12 +12,17 @@ function Question({ MCQs, setSubmit }) {
   const options = ["A", "B", "C", "D", "E", "F", "G", "H"];
   const [checked, setChecked] = useState("None");
 
-
   return (
     <div className="content w-100 ">
+      <div>
+        <div className="serialNo" style={{ color: "black" }}>
+          {mcqCount + 1 + "/" + MCQs.length}
+        </div>
+      </div>
       <div className="Quizheader mb-2">
         {"Question # " + (mcqCount + 1) + ":"}
       </div>
+
       <div className="QuizQuestion m-2">{MCQs[mcqCount].question}</div>
 
       <div className="QuizContent">
@@ -26,10 +31,10 @@ function Question({ MCQs, setSubmit }) {
             text={options[index] + ". " + option}
             id={options[index]}
             onClick={() => {
-              dispatch(addScore({index : mcqCount, value: index}))
+              dispatch(addScore({ index: mcqCount, value: index }));
               setChecked(options[index]);
             }}
-            checked={scores[mcqCount] !== index }
+            checked={scores[mcqCount] !== index}
           />
         ))}
 

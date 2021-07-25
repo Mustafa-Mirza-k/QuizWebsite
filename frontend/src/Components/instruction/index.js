@@ -1,6 +1,11 @@
 import React from "react";
 import { Button } from "react-bootstrap";
-function instructions({ onStart }) {
+import { useDispatch, useSelector } from "react-redux";
+import { resetCounter } from "../../Redux/mcqCounter";
+import { reset } from "../../Redux/scores";
+
+function Instructions({ onStart }) {
+  const dispatch = useDispatch();
   return (
     <div className="content">
       <div className="Quizheader text-center">Instructions for Quiz</div>
@@ -16,7 +21,14 @@ function instructions({ onStart }) {
           <li>You need to attempt each question.</li>
         </ul>
         <div className="centered">
-          <Button className="quizbtn" onClick={onStart}>
+          <Button
+            className="quizbtn"
+            onClick={() => {
+              onStart();
+              dispatch(reset());
+              dispatch(resetCounter());
+            }}
+          >
             Start Quiz
           </Button>
         </div>
@@ -25,4 +37,4 @@ function instructions({ onStart }) {
   );
 }
 
-export default instructions;
+export default Instructions;

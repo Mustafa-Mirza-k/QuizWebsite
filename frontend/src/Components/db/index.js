@@ -8,10 +8,33 @@ async function getUsers(MCQ) {
   });
 }
 
+async function userAuth(user) {
+  return axios({
+    method: "post", //you can set what request you want to be
+    url: process.env.REACT_APP_BASE_URL + "/api/user/auth",
+    params: {
+      email: user.email,
+      password: user.password,
+    },
+    withCredentials: true,
+  });
+}
+
 async function getMCQbyid(id) {
   return await axios({
     method: "get", //you can set what request you want to be
     url: process.env.REACT_APP_BASE_URL + "/api/quiz/" + id,
+  });
+}
+
+async function setScores(id, scores) {
+  return await axios({
+    method: "patch", //you can set what request you want to be
+    url: process.env.REACT_APP_BASE_URL + "/api/user/"+id,
+    data: { score: scores },
+    headers: {
+      "Content-Type": "application/json",
+    },
   });
 }
 
@@ -68,4 +91,6 @@ export default {
   deleteMCQ,
   getUsers,
   addUser,
+  userAuth,
+  setScores,
 };

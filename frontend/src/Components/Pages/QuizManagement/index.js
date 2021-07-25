@@ -61,7 +61,7 @@ function QuizManage() {
   }
 
   return (
-    <div>
+    <div className="wrapper">
       <Navigationbar />
       <Message
         show={messageShow}
