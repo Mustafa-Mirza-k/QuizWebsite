@@ -164,7 +164,7 @@ function QuizModal({ visibility, setVisiblity, id, task }) {
                 variant="success"
                 id="dropdown-basic"
               >
-                {quiz && quiz.answer ? alpha[quiz.answer] : answer}
+                {quiz ? alpha[quiz.answer] : answer}
               </Dropdown.Toggle>
               <Dropdown.Menu name="answer">
                 {alpha.map(

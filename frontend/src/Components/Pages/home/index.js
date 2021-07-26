@@ -39,13 +39,21 @@ function Home() {
           </Button>
         </div>
       </div>
-  
 
       <div className="contain">
         {quiz && typeof quiz.length !== "undefined" && !start ? (
           <Instructions total={quiz.length} onStart={() => setStart(true)} />
+        ) : start && !submit && quiz.length !== 0 ? (
+          <Question setSubmit={setSubmit} MCQs={quiz} />
         ) : (
-          start && !submit && <Question setSubmit={setSubmit} MCQs={quiz} />
+          <div className="QuizContent">
+            <p
+              className="normalFont text-center mt-3 "
+              style={{ color: "red" }}
+            >
+              No question found!
+            </p>
+          </div>
         )}
         {submit && <ScoresShow MCQs={quiz} />}
       </div>
