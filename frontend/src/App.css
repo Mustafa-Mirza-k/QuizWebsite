@@ -80,7 +80,7 @@ Table {
 .loginForm {
   width: 80%;
   margin-left: 10%;
-  margin-top: 10%;
+  margin-top: 5%;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -101,6 +101,15 @@ Table {
   background-color: #f7f7f7;
   height: 700px !important;
 }
+
+.logotext{
+  font-size: 40px;
+  font-weight: 600;
+  color: #474796;
+  text-align: center;
+}
+
+
 @media only screen and (max-width: 800px) {
   .loginCol {
     display: none;

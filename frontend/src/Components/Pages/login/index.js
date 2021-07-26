@@ -28,10 +28,12 @@ function Login() {
     db.userAuth(userInfo)
       .then((res) => {
         if (res.status === 201) {
+          infoMessage("Login successfully", true);
           Cookies.set("user", res.data);
           res.data.type === "user"
             ? History.push("/")
             : History.push("/scores");
+            
         } else {
           infoMessage("Invalid email or password", false);
         }
@@ -63,15 +65,20 @@ function Login() {
         message={message}
         success={success}
       />
+     
       <Col className="loginCol col-md-7 ">
+        
         <Image
-          src="https://static.vecteezy.com/system/resources/previews/001/993/295/original/online-test-and-exam-with-people-filling-answer-vector.jpg"
+          src="https://thumbs.dreamstime.com/b/students-characters-studying-online-exam-internet-quiz-concept-vector-illustration-187061431.jpg"
           fluid
           className="LoginImage"
         />
+      
       </Col>
       <Col className="col-md-5 colForm">
+      <div className="logotext"><Image src='https://www.dqglobal.com/wp-content/uploads/2020/03/DQ-Blank.png' width="10%"/> Delta Quiz</div>
         <Form className="loginForm " onSubmit={submit}>
+
           <div className="text-center loginHeader">Login to continue</div>
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label className="normalFont">Email address</Form.Label>

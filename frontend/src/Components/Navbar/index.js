@@ -13,7 +13,10 @@ function Navigationbar() {
         variant="dark"
       >
         <Container>
-          <Navbar.Brand href="#home">Quiz Application</Navbar.Brand>
+          <Navbar.Brand href="#home">
+         
+            Delta Quiz
+          </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">

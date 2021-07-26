@@ -15,10 +15,13 @@ function Instructions({ onStart }) {
         </p>
         <ul className="instructions  mt-3">
           <li>There is no time limit for the quiz.</li>
-          <li>Each question carry equal marks.</li>
-          <li>Total number of questions are .</li>
+          <li>Each question carry equal points (1 Point).</li>
+          <li>You can move between questions using next and previous button</li>
           <li>The quiz contains Multiple Choice Questions.</li>
-          <li>You need to attempt each question.</li>
+          <li>
+            To submit the Quiz you need to click submit button on the last
+            question.
+          </li>
         </ul>
         <div className="centered">
           <Button
