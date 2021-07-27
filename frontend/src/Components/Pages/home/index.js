@@ -11,6 +11,8 @@ function Home() {
   const [quiz, setQuiz] = useState(null);
   const [submit, setSubmit] = useState(false);
   const [start, setStart] = useState(false);
+  const [screen, setScreen] = useState("Instruction");
+
   let History = useHistory();
   useEffect(() => {
     async function fetchQuizes() {
@@ -41,21 +43,28 @@ function Home() {
       </div>
 
       <div className="contain">
-        {quiz && typeof quiz.length !== "undefined" && !start ? (
-          <Instructions total={quiz.length} onStart={() => setStart(true)} />
-        ) : start && !submit && quiz.length !== 0 ? (
-          <Question setSubmit={setSubmit} MCQs={quiz} />
-        ) : (
-          <div className="QuizContent">
-            <p
-              className="normalFont text-center mt-3 "
-              style={{ color: "red" }}
-            >
-              No question found!
-            </p>
-          </div>
-        )}
-        {submit && <ScoresShow MCQs={quiz} />}
+        {quiz &&
+          typeof quiz.length !== "undefined" &&
+          screen == "Instruction" && (
+            <Instructions
+              total={quiz.length}
+              onStart={() => setScreen("Questions")}
+            />
+          )}
+        {screen == "Questions" &&
+          (quiz && quiz.length !== 0 ? (
+            <Question setSubmit={() => setScreen("Scores")} MCQs={quiz} />
+          ) : (
+            <div className="QuizContent">
+              <p
+                className="normalFont text-center mt-3 "
+                style={{ color: "red" }}
+              >
+                No question found!
+              </p>
+            </div>
+          ))}
+        {screen == "Scores" && <ScoresShow MCQs={quiz} />}
       </div>
     </div>
   );
